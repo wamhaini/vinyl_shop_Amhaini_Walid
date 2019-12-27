@@ -1,3 +1,17 @@
 main {
     min-height: 500px;
 }
+
+.cardShopMaster{
+    cursor: pointer;
+
+    .btn{
+        display: none;
+    }
+}
+
+.form{
+    .btn{
+        display: none;
+    }
+}

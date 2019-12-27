@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.8.35 on 2019-10-04 07:26:44.
+ * Generated for Laravel 5.8.35 on 2019-12-04 15:27:18.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -14585,6 +14585,33 @@ namespace Illuminate\Support {
  
 }
 
+namespace Facades\App\Helpers { 
+
+    /**
+     * 
+     *
+     * @see \App\Helpers\Json
+     */ 
+    class Json {
+        
+        /**
+         * Dump data as json (add ?json to URL)
+         *
+         * @param mixed $data string, array, associative array object
+         * @param bool $onlyInDebugMode runs only in debug mode: default = true
+         * @version 1.0
+         * @static 
+         */ 
+        public static function dump($data = null, $onlyInDebugMode = true)
+        {
+                        /** @var \App\Helpers\Json $instance */
+                        return $instance->dump($data, $onlyInDebugMode);
+        }
+         
+    }
+ 
+}
+
 
 namespace  { 
 
@@ -17338,6 +17365,8 @@ namespace  {
         }
 
     class Event extends \Illuminate\Support\Facades\Event {}
+
+    class Json extends \Facades\App\Helpers\Json {}
 
     class File extends \Illuminate\Support\Facades\File {}
 

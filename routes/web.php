@@ -12,8 +12,13 @@
 */
 
 Route::view('/', 'home');
+Route::get('shop', 'ShopController@index');
+Route::get('shop/{id}', 'ShopController@show');
+Route::get('shop_alt', 'ShopController@alt');
 Route::view('contact-us', 'contact');
-Route::redirect('admin', 'admin/records');
+Route::prefix('admin')->group(function(){
+    Route::redirect('/', 'records');
+    Route::get('records', 'Admin\RecordController@index');
 
 //Old version
 /*Route::get('admin/records', function () {
@@ -28,7 +33,4 @@ Route::redirect('admin', 'admin/records');
     ]);
 });*/
 
-//New version with prefix and group
-Route::prefix('admin')->group(function () {
-    Route::get('records', 'Admin\RecordController@index');
 });

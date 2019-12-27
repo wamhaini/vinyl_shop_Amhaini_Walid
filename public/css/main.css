@@ -1,0 +1,16 @@
+main {
+  min-height: 500px;
+}
+
+.cardShopMaster {
+  cursor: pointer;
+}
+.cardShopMaster .btn {
+  display: none;
+}
+
+.form .btn {
+  display: none;
+}
+
+/*# sourceMappingURL=main.css.map */

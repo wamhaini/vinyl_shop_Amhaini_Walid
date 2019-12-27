@@ -35,3 +35,5 @@ require('./bootstrap');
 window.vinylShop = require('./vinylShop');
 // Run the hello() function
 vinylShop.hello();
+
+// vinylShop.to_mm_ss();
