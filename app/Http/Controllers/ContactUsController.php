@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Json;
+use App\Mail\ContactMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ContactUsController extends Controller
 {
@@ -19,10 +22,14 @@ class ContactUsController extends Controller
         $this->validate($request,[
             'name' => 'required',
             'email' => 'required|email',
+            'contact' => 'required',
             'message' => 'required|min:10'
         ]);
 
         // Send email
+        $email = new ContactMail($request);
+        Mail::to($request->email, $request->name, $request->contact)
+        ->send($email);
 
         // Flash filled-in form values to the session
         $request->flash();

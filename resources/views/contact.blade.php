@@ -5,17 +5,9 @@
 @section('main')
     <h1>Contact us</h1>
     @include('shared.alert')
-    @if (session()->has('success'))
-        <div class="alert alert-success alert-dismissable">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">×</span>
-            </button>
-            <p>{!! session()->get('success') !!}</p>
-        </div>
-    @endif
 
     @if (!session()->has('success'))
-        <form action="/contact-us" method="post" novalidate>
+        <form action="/contact-us" method="post">
             @csrf
             <div class="form-group">
                 <label for="name">Name</label>
@@ -36,6 +28,19 @@
                 <div class="invalid-feedback">{{ $errors->first('email') }}</div>
             </div>
             <div class="form-group">
+                <label for="contact">Contact</label>
+                <select name="contact" id="contact"
+                        class="form-control {{ $errors->first('contact') ? 'is-invalid' : '' }}"
+                        required>
+                    <option value="" disabled selected hidden> @if(!old('contact'))Select a
+                        contact @else {{ucfirst(old('contact'))}}@endif</option>
+                    <option value="info">Info</option>
+                    <option value="billing">Billing</option>
+                    <option value="support">Support</option>
+                </select>
+                <div class="invalid-feedback">{{ $errors->first('contact') }}</div>
+            </div>
+            <div class="form-group">
                 <label for="message">Message</label>
                 <textarea name="message" id="message" rows="5"
                           class="form-control {{ $errors->first('message') ? 'is-invalid' : '' }}"
@@ -47,4 +52,13 @@
             <button type="submit" class="btn btn-success">Send Message</button>
         </form>
     @endif
+    <script>
+        $(function(){
+            $('input[required], select[required], textarea[required]').each(function () {
+                $(this).closest('.form-group')
+                    .find('label')
+                    .append('<sup class="text-danger mx-1">*</sup>');
+            });
+        });
+    </script>
 @endsection

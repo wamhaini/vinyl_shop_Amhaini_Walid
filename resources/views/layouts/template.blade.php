@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="{{ mix('css/app.css') }}"/>
-    <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="/css/main.css"/>
     @yield('css_after')
 
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
@@ -26,5 +27,10 @@
 @include('shared.footer')
 <script src="{{ mix('js/app.js') }}"></script>
 @yield('script_after')
+@if(env('APP_DEBUG'))
+    <script>
+        $('form').attr('novalidate', 'true');
+    </script>
+@endif
 </body>
 </html>

@@ -2,7 +2,7 @@
 @if (session()->has('success'))
     <div class="alert alert-success alert-dismissable">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">×</span>
+{{--            <span aria-hidden="true">×</span>--}}
         </button>
         <p>{!! session()->get('success') !!}</p>
     </div>

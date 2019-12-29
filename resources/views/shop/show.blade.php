@@ -51,6 +51,7 @@
                     let row = `<tr>
                 <td>${value.position}</td>
                 <td>${value.title}</td>
+
                 <td>${value.length == null ? to_mm_ss(value.recording.length) : to_mm_ss(value.length)}</td>
             </tr>`;
                     // Append the row to the tbody tag
