@@ -36906,38 +36906,14 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // window.Vue = require('vue');
-
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
-// const files = require.context('./', true, /\.vue$/i);
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
-// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-// const app = new Vue({
-//     el: '#app',
-// });
-// Make all functions inside 'vinylShop.js' that start with 'export' accessible inside the HTML pages
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // Make all functions inside 'vinylShop.js' that start with 'export' accessible inside the HTML pages
 
 
 window.vinylShop = __webpack_require__(/*! ./vinylShop */ "./resources/js/vinylShop.js"); // Run the hello() function
 
-vinylShop.hello();
+vinylShop.hello(); // Run the to_mm_ss() function
+
+vinylShop.to_mm_ss();
 
 /***/ }),
 
@@ -36990,15 +36966,36 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*!***********************************!*\
   !*** ./resources/js/vinylShop.js ***!
   \***********************************/
-/*! exports provided: hello */
+/*! exports provided: hello, to_mm_ss */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hello", function() { return hello; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "to_mm_ss", function() { return to_mm_ss; });
 function hello() {
   console.log('The Vinyl Shop JavaScript works! 🙂');
 }
+;
+function to_mm_ss(duration) {
+  var seconds = parseInt(duration / 1000 % 60);
+  var minutes = parseInt(duration / (1000 * 60) % 60);
+  minutes = minutes < 10 ? '0' + minutes : minutes;
+  seconds = seconds < 10 ? '0' + seconds : seconds;
+  duration = minutes + ':' + seconds;
+  return duration;
+}
+;
+$(function () {
+  $('input[required], select[required], textarea[required]').each(function () {
+    $(this).closest('.form-group').find('label').append('<sup class="text-danger mx-1">*</sup>');
+  });
+  $('nav i.fas').addClass('fa-fw mr-1');
+  $('body').tooltip({
+    selector: '[data-toggle="tooltip"]',
+    html: true
+  });
+});
 
 /***/ }),
 

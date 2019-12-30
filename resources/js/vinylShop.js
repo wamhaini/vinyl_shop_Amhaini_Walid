@@ -19,4 +19,9 @@ $(function(){
     });
 
     $('nav i.fas').addClass('fa-fw mr-1');
+
+    $('body').tooltip({
+        selector: '[data-toggle="tooltip"]',
+        html : true,
+    });
 });

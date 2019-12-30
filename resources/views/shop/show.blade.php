@@ -51,8 +51,7 @@
                     let row = `<tr>
                 <td>${value.position}</td>
                 <td>${value.title}</td>
-
-                <td>${value.length == null ? to_mm_ss(value.recording.length) : to_mm_ss(value.length)}</td>
+                <td>${value.length == null ? vinylShop.to_mm_ss(value.recording.length) : vinylShop.to_mm_ss(value.length)}</td>
             </tr>`;
                     // Append the row to the tbody tag
                     $('tbody').append(row);
@@ -61,16 +60,5 @@
             .fail(function (error) {
                 console.log("error", error);
             });
-
-
-        function to_mm_ss(duration) {
-            let seconds = parseInt((duration / 1000) % 60);
-            let minutes = parseInt(duration / (1000 * 60));
-            minutes = (minutes < 10) ? '0' + minutes : minutes;
-            seconds = (seconds < 10) ? '0' + seconds : seconds;
-            duration = minutes + ':' + seconds;
-            return duration;
-        }
-
     </script>
 @endsection
