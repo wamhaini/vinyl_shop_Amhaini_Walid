@@ -2,17 +2,6 @@
 
 @section('title', 'Shop')
 
-{{--@section('css_after')--}}
-{{--    <style>--}}
-{{--        .card {--}}
-{{--            cursor: pointer;--}}
-{{--        }--}}
-{{--        .card .btn, form .btn {--}}
-{{--            display: none;--}}
-{{--        }--}}
-{{--    </style>--}}
-{{--@endsection--}}
-
 @section('main')
     <h1>Shop</h1>
     <form method="get" action="/shop" id="searchForm">
@@ -30,9 +19,6 @@
                     @endforeach
                 </select>
             </div>
-{{--            <div class="col-sm-2 mb-2">--}}
-{{--                <button type="submit" class="btn btn-success btn-block">Search</button>--}}
-{{--            </div>--}}
         </div>
     </form>
     <hr>
