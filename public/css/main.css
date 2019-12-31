@@ -13,4 +13,8 @@ main {
   display: none;
 }
 
+a.disabled{
+    cursor: not-allowed;
+    pointer-events: none !important;
+}
 /*# sourceMappingURL=main.css.map */

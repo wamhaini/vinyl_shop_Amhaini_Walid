@@ -31,17 +31,6 @@ class RecordController extends Controller
         $genres = Genre::select('id', 'name')->orderBy('name')->get();
         // To avoid errors with the 'old values' inside the form, we have to send an empty Record object to the view
         $record = new Record();
-// Or temporarily add this to the create() method to simplify testing
-        $record->artist = 'Ramones';
-        $record->artist_mbid = 'd6ed7887-a401-47a8-893c-34b967444d26';
-        $record->title = 'End of the Century';
-        $record->title_mbid = '58dcd354-a89a-48ea-9e6e-e258cb23e11d';
-        $record->cover = null;
-        $record->price = 19.90;
-        $record->stock = 2;
-        $record->genre_id = 2;
-
-
         $result = compact('genres', 'record');
         Json::dump($result);
         return view('admin.records.create', $result);

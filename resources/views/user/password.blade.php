@@ -41,13 +41,4 @@
         </div>
         <button type="submit" class="btn btn-success">Update password</button>
     </form>
-    <script>
-        $(function(){
-            $('input[required], select[required], textarea[required]').each(function () {
-                $(this).closest('.form-group')
-                    .find('label')
-                    .append('<sup class="text-danger mx-1">*</sup>');
-            });
-        });
-    </script>
 @endsection

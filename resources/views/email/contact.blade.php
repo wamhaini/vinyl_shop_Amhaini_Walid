@@ -6,7 +6,6 @@ We'll contact you as soon as possible.
 <hr>
 <b>Your name:</b> {{ $request->name }}<br>
 <b>Your email:</b> {{ $request->email }}<br>
-<b>Your contact:</b> {{ ucfirst($request->contact) }}<br>
 <b>Your message:</b><br>{{ $request->message }}
 
 Thanks,<br>
